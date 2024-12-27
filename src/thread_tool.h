@@ -70,8 +70,6 @@ struct sleeping_thread
 extern struct sleeping_thread sleeping_set[THREAD_MAX];
 extern int sleeping_set_size;
 
-// Directly do functions with weird implementation
-// Done thread_create
 #define thread_create(func, t_id, t_args) \
     ({                                    \
         do                                \
@@ -112,7 +110,6 @@ extern int sleeping_set_size;
         sigset_t pending;                                        \
         if (setjmp(current_thread->env) == 0)                    \
         {                                                        \
-            /* 解鎖並重新鎖定 SIGTSTP 信號 */           \
             sigset_t mask;                                       \
             sigemptyset(&mask);                                  \
                                                                  \
@@ -120,22 +117,18 @@ extern int sleeping_set_size;
             sigprocmask(SIG_UNBLOCK, &mask, NULL);               \
             sigprocmask(SIG_BLOCK, &mask, NULL);                 \
                                                                  \
-            /* 解鎖並重新鎖定 SIGALRM 信號 */           \
             sigemptyset(&mask);                                  \
             sigaddset(&mask, SIGALRM);                           \
             sigprocmask(SIG_UNBLOCK, &mask, NULL);               \
             sigprocmask(SIG_BLOCK, &mask, NULL);                 \
                                                                  \
-            /* 檢查是否有掛起的信號 */                 \
             sigpending(&pending);                                \
             if (!sigismember(&pending, SIGTSTP) &&               \
                 !sigismember(&pending, SIGALRM))                 \
             {                                                    \
-                /* 如果沒有信號，返回當前執行緒 */ \
                 longjmp(current_thread->env, 1);                 \
             }                                                    \
                                                                  \
-            /* 有信號，進入調度器 */                    \
         }                                                        \
     })
 
