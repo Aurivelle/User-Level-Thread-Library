@@ -1,0 +1,6 @@
+# build output
+build/
+hw3
+
+# vscode config
+.vscode/
