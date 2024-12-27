@@ -1,7 +1,7 @@
 ### Objective
 This assignment focuses on implementing a user-level thread library in C. It involves aspects of thread management, including creating, scheduling, and synchronizing threads.
 
-### Specific Functions
+### High-Level Explanation
 Implement thread scheduling, including preemption and context switching.
 Manage thread synchronization using read-write locks.
 Implement a sleeping and waking mechanism for threads.
