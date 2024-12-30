@@ -1,0 +1,40 @@
+thread 1: set up routine enroll
+thread 2: set up routine enroll
+thread 3: set up routine pm
+thread 4: set up routine fibonacci
+thread 5: set up routine enroll
+thread 0: set up routine idle
+thread 1: sleep 8
+thread 2: sleep 2
+thread 3: pm(1) = 1
+caught SIGTSTP
+thread 4: F_1 = 1
+thread 4: F_2 = 1
+thread 4: exit
+thread 5: sleep 3
+thread 2: acquire read lock
+thread 2: release read lock, p_p = 2, p_s = 6
+caught SIGALRM
+thread 3: pm(2) = -1
+caught SIGTSTP
+thread 1: acquire read lock
+caught SIGTSTP
+thread 5: acquire read lock
+thread 5: release read lock, p_p = 1, p_s = 4
+caught SIGTSTP
+thread 3: pm(3) = 2
+thread 3: pm(4) = -2
+caught SIGALRM
+thread 1: release read lock, p_p = 3, p_s = 4
+thread 1: acquire write lock, enroll in sw_class
+caught SIGALRM
+thread 3: pm(5) = 3
+thread 3: exit
+thread 1: release write lock
+thread 1: exit
+thread 2: acquire write lock, enroll in sw_class
+thread 2: release write lock
+thread 2: exit
+thread 5: acquire write lock, enroll in pj_class
+thread 5: release write lock
+thread 5: exit

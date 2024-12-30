@@ -1,0 +1,61 @@
+thread 1: set up routine enroll
+thread 2: set up routine enroll
+thread 3: set up routine enroll
+thread 4: set up routine enroll
+thread 5: set up routine enroll
+thread 6: set up routine enroll
+thread 7: set up routine enroll
+thread 0: set up routine idle
+thread 1: sleep 10
+thread 2: sleep 4
+thread 3: sleep 5
+thread 4: sleep 3
+thread 5: sleep 1
+thread 6: sleep 9
+thread 7: sleep 4
+thread 0: idle
+caught SIGTSTP
+thread 5: acquire read lock
+caught SIGTSTP
+thread 6: acquire read lock
+caught SIGTSTP
+thread 2: acquire read lock
+caught SIGTSTP
+thread 4: acquire read lock
+thread 4: release read lock, p_p = 285, p_s = 118
+caught SIGALRM
+thread 7: acquire read lock
+thread 7: release read lock, p_p = 65, p_s = 34
+caught SIGALRM
+thread 5: release read lock, p_p = 30, p_s = 8
+thread 3: acquire read lock
+thread 3: release read lock, p_p = 145, p_s = 42
+caught SIGALRM
+thread 6: release read lock, p_p = 35, p_s = 6
+caught SIGTSTP
+thread 1: acquire read lock
+thread 1: release read lock, p_p = 10, p_s = 16
+caught SIGALRM
+thread 2: release read lock, p_p = 15, p_s = 140
+thread 2: acquire write lock, enroll in sw_class
+caught SIGALRM
+thread 2: release write lock
+thread 2: exit
+thread 5: acquire write lock, enroll in pj_class
+thread 5: release write lock
+thread 5: exit
+thread 4: acquire write lock, enroll in pj_class
+thread 4: release write lock
+thread 4: exit
+thread 7: acquire write lock, enroll in pj_class
+thread 7: release write lock
+thread 7: exit
+thread 3: acquire write lock, enroll in pj_class
+thread 3: release write lock
+thread 3: exit
+thread 6: acquire write lock, enroll in pj_class
+thread 6: release write lock
+thread 6: exit
+thread 1: acquire write lock, enroll in sw_class
+thread 1: release write lock
+thread 1: exit

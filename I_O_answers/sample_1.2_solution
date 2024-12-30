@@ -1,0 +1,21 @@
+thread 1: set up routine pm
+thread 2: set up routine pm
+thread 3: set up routine pm
+thread 4: set up routine pm
+thread 0: set up routine idle
+thread 1: pm(1) = 1
+thread 1: exit
+thread 2: pm(1) = 1
+thread 2: pm(2) = -1
+caught SIGTSTP
+thread 3: pm(1) = 1
+caught SIGTSTP
+thread 4: pm(1) = 1
+thread 4: pm(2) = -1
+thread 4: exit
+thread 2: pm(3) = 2
+thread 2: exit
+thread 3: pm(2) = -1
+thread 3: pm(3) = 2
+thread 3: pm(4) = -2
+thread 3: exit

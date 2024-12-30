@@ -1,0 +1,21 @@
+thread 1: set up routine enroll
+thread 2: set up routine enroll
+thread 0: set up routine idle
+thread 1: sleep 8
+thread 2: sleep 1
+thread 0: idle
+thread 0: idle
+thread 0: idle
+caught SIGALRM
+thread 2: acquire read lock
+thread 2: release read lock, p_p = 10, p_s = 18
+thread 2: acquire write lock, enroll in sw_class
+caught SIGALRM
+thread 2: release write lock
+thread 2: exit
+thread 1: acquire read lock
+thread 1: release read lock, p_p = 15, p_s = 10
+thread 1: acquire write lock, enroll in pj_class
+caught SIGALRM
+thread 1: release write lock
+thread 1: exit
